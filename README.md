@@ -15,7 +15,7 @@ This project was inspired by https://github.com/ngshiheng/michelin-my-maps, but 
 
 ## Running the scraper
 
-1. Create Pulumi account at https://app.pulumi.com. Then create a project and stack.
+1. Create Pulumi account at https://app.pulumi.com and project
 2. Generate API token in Pulumi
 3. Ensure PostgreSQL database is up and running. I'm using cloud [Neon](https://neon.tech) database which comes with a generous free plan
 4. Create Hetzner Cloud account and generate API token

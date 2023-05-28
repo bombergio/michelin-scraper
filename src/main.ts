@@ -19,8 +19,8 @@ async function main() {
       await enqueueLinks({
         strategy: EnqueueStrategy.SameDomain,
         regexps: [
-          /https:\/\/guide\.michelin\.com\/en\/[\w-]+\/[\w-]+\/restaurant\/[\w-]+$/gi,
-          /https:\/\/guide\.michelin\.com\/en\/restaurants\/page\/[\d-]+/gi
+          /https:\/\/guide\.michelin\.com\/en\/[\w-]+\/[\w-]+\/restaurant\/[\w\-%]+$/gi,
+          /https:\/\/guide\.michelin\.com\/en\/restaurants\/page\/[\d]+/gi
         ]
       });
       log.info(request.url)
@@ -70,7 +70,6 @@ async function main() {
           url: url,
         })
         .catch((err) => console.error('Error in upsertRestaurant:', err))
-        .finally(() => hetznerCloud("destroy"));
       }
     },
 
