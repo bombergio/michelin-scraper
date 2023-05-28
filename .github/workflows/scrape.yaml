@@ -11,8 +11,6 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - name: Install Pulumi
-      run: curl -fsSL https://get.pulumi.com | sh
     - name: Install dependencies
       run: npm install && npm install prisma -g
     - name: Run migrations
@@ -27,5 +25,5 @@ jobs:
         PROXY_USER: ${{ secrets.PROXY_USER }}
         PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
         HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
-        PULUMI_TOKEN: ${{ secrets.PULUMI_TOKEN }}
+        PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_TOKEN }}
       run: npm run start
