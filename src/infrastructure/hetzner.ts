@@ -9,6 +9,8 @@ const stackName = "dev";
 const proxyCount = 9;
 const sshKeys = ["My SSH key"];
 
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
 async function getProxyUrls(servers: hcloud.Server[], proxyUser: string, proxyPassword: string): Promise<string[]> {
   const serverIpsOutput = servers.map((server: hcloud.Server) => server.ipv4Address);
   const allServerIps = pulumi.all(serverIpsOutput);
@@ -63,6 +65,7 @@ export async function hetznerCloud(status: "up" | "destroy") {
   console.info("Pulumi: stack started");
 
   const proxyUrls = await getProxyUrls(servers, proxyUser, proxyPassword);
+  await sleep(30000);
   console.log("Proxy URLs:", proxyUrls);
   return proxyUrls;
 }
