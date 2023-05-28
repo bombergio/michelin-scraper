@@ -1,0 +1,12 @@
+{
+  "extends": "@apify/tsconfig",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2019",
+    "outDir": "dist",
+    "noUnusedLocals": false,
+    "lib": ["DOM"],
+    "baseUrl": "."
+  },
+  "include": ["src/**/*.ts"]
+}
