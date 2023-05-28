@@ -111,5 +111,6 @@ async function upsertRestaurant(restaurantData: Partial<Restaurant>): Promise<Re
 }
 
 const prisma = new PrismaClient();
-main().catch((err) => console.error('Error in main:', err));
-hetznerCloud("destroy");
+main()
+  .catch((err) => console.error('Error in main:', err))
+  .finally(() => hetznerCloud("destroy"));
