@@ -12,10 +12,18 @@ jobs:
       with:
         node-version: '16'
     - name: Install dependencies
-      run: npm install
-    - name: Install prisma
-      run: npm install prisma -g
+      run: npm install && npm install prisma -g
     - name: Run migrations
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        DIRECT_URL: ${{ secrets.DIRECT_URL }}
       run: prisma migrate deploy
     - name: Run App
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        DIRECT_URL: ${{ secrets.DIRECT_URL }}
+        PROXY_USER: ${{ secrets.PROXY_USER }}
+        PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
+        HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+        PULUMI_TOKEN: ${{ secrets.PULUMI_TOKEN }}
       run: npm run start
