@@ -68,7 +68,9 @@ async function main() {
           latitude: latitude,
           longitude: longitude,
           url: url,
-        });
+        })
+        .catch((err) => console.error('Error in upsertRestaurant:', err))
+        .finally(() => hetznerCloud("destroy"));
       }
     },
 
