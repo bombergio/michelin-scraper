@@ -31,5 +31,5 @@ This project was inspired by https://github.com/ngshiheng/michelin-my-maps, but 
     HCLOUD_TOKEN="<Hetzner Cloud token>"
     PULUMI_TOKEN="<Pulumi Token>"
     ```
-8. Run Prisma migrations with `prisma migrate deploy`
+8. Initialise Prisma client and run Prisma migrations with `prisma generate && prisma migrate deploy`
 9. Run scraper with `npm run start`
